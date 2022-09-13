@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebAppMVC.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Employee List</h1>
+
+<p style="text-align:right;margin-right:20px;">
+    <a class="btn btn-outline-primary" asp-action="Create">Create New</a>
+</p>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th></th>
+                <th>Edit Action</th>
+                <th>Details Action</th>
+                <th>Delete Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Model
+                    </td>
+                    <td>
+                    <td>
+                        <a asp-action="Edit" class="btn btn-outline-primary" asp-route-id="@item.Id">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.Id">Details</a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
